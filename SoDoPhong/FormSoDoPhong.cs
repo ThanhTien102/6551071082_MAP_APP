@@ -125,14 +125,12 @@ namespace LAB1.SoDoPhong
         {
             string? maPhong = MaPhongDangChon();
 
-            MessageBox.Show(
-                "Chức năng đặt phòng đang được xây dựng."
-                + (maPhong != null
-                    ? Environment.NewLine + "Phòng đang chọn: " + maPhong
-                    : ""),
-                "Thông báo",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            using (var formDatPhong = new FormDatPhong(maPhong))
+            {
+                formDatPhong.ShowDialog(this);
+            }
+
+            TaiLaiDanhSach();
         }
 
         private void LocTheoRadio(object? sender)

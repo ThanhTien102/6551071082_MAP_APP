@@ -75,12 +75,12 @@ namespace LAB1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách nhân viên");
+            LoadFormCon(new LAB1.NhanVien.FormDanhSachNhanVien());
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách khách hàng");
+            LoadFormCon(new LAB1.KhachHang.FormDanhSachKhachHang());
         }
 
         private void btnQuanLyPhong_Click(object sender, EventArgs e)
@@ -90,12 +90,12 @@ namespace LAB1
 
         private void button12_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách tiện nghi");
+            LoadFormCon(new LAB1.TienNghi.FormDanhSachTienNghi());
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách dịch vụ");
+            LoadFormCon(new LAB1.DichVu.FormDanhSachDichVu());
         }
 
         private void btnSoDoPhong_Click(object sender, EventArgs e)
