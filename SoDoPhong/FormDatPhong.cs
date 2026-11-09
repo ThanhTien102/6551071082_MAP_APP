@@ -547,7 +547,7 @@ namespace LAB1.SoDoPhong
                 string maPT = TaoMaTiepTheo(
                     db.PhieuThues.Select(p => p.MaPt).ToList(), "PT", 3, 5);
 
-                db.PhieuThues.Add(new PhieuThue
+                db.PhieuThues.Add(new LAB1.Models.PhieuThue
                 {
                     MaPt = maPT,
                     NgPt = DateTime.Now,

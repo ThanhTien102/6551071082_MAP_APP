@@ -65,7 +65,15 @@ namespace LAB1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách tài khoản");
+            Form formCon = new LAB1.TaiKhoan.FormDanhSachTaiKhoan();
+
+            formCon.TopLevel = false;
+            formCon.FormBorderStyle = FormBorderStyle.None;
+            formCon.Dock = DockStyle.Fill;
+
+            XoaNoiDungPanelMain();
+            panelMain.Controls.Add(formCon);
+            formCon.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -113,17 +121,17 @@ namespace LAB1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách đặt phòng");
+            LoadFormCon(new LAB1.PhieuThue.FormDanhSachPhieuThue());
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Danh sách hóa đơn");
+            LoadFormCon(new LAB1.HoaDon.FormDanhSachHoaDon());
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            HienThiDangPhatTrien("Thống kê");
+            LoadFormCon(new LAB1.ThongKe.FormBaoCaoThongKe());
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -157,9 +165,20 @@ namespace LAB1
             formCon.Show();
         }
 
+        private void LoadUserControl(UserControl uc)
+        {
+            XoaNoiDungPanelMain();
+            uc.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(uc);
+            uc.BringToFront();
+        }
+
         private void HienThiTrangChu()
         {
-            HienThiDangPhatTrien("Trang chủ");
+            if (panelMain.Controls.Count == 1 && panelMain.Controls[0] is FormTrangChu)
+                return;
+
+            LoadUserControl(new FormTrangChu());
         }
 
         private void HienThiDangPhatTrien(string tenChucNang)
